@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function shift_right() {
+		 if(document.getElementById('ta1').value == '') return;
+			document.getElementById('ta2').value = document.getElementById('ta1').value;
+			document.getElementById('ta1').value = '';
+	}
+	function shift_left() {
+		 if(document.getElementById('ta2').value != '') {
+			document.getElementById('ta1').value = document.getElementById('ta2').value;
+			document.getElementById('ta2').value = '';
+		}else {
+			alert('전달할 값이 없네요');
+		}
+	}
+</script>
+</head>
+<body>
+<table>
+<tr>
+	<td><textarea id="ta1" row="5" cols="20">딸기밭이여 영원하라</textarea></td>
+	<td><input type="button" value="◀" onclick="javascript:shift_left();"/><br/>
+		<input type="button" value="▶" onclick="javascript:shift_right();"/></td>
+	<td><textarea id="ta2" row="5" cols="20"></textarea></td>
+</tr>
+</table>
+</body>
+</html>

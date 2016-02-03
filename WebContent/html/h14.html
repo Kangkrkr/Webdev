@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.addEventListener("resize", start, false);
+
+function start (){
+	var_vid = document.querySelector("video");
+	_vid.style.position = "fixed";
+	_vid.style.width = window.innerWidth + 'px';
+	_vid.style.height = window.innerHeight + 'px';
+	_vid.style.zIndex = 100;
+}
+</script>
+</head>
+<body onload="start()">
+<video
+	autoplay="autoplay"
+	controls="controls"
+	width="1000">
+	<source src="video/grang.mp4" />
+</video>
+</body>
+</html>

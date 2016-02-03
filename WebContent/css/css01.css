@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+/* external style : 외부 파일로 분리 */
+ul {
+	color:orange;
+}

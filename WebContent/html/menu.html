@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function change_bg(color) {
+	parent.content.document.bgColor=color;
+}
+function getColor() {
+	alert(parent.content.document.bgColor)
+}
+
+</script>
+</head>
+<body>
+[menu]
+<hr/>
+<a href="lunch.html" target="content">점심</a><br/>
+<a href="h12.html" target="_top">전체화면으로</a><br/>
+<form name="frametest">
+	<input type="button" value="나는 지금 빨간색" onclick="change_bg('#FF0000')"/><br/>
+	<input type="button" value="나는 지금 초록색" onclick="change_bg('green')"/><br/>
+	<input type="button" value="나는 지금 파란색" onclick="change_bg('#0000FF')"/><br/>
+	<input type="button" value="나는 지금 노란색" onclick="change_bg('#FFFF00')"/>
+<hr/>
+<input type ="text" name="content_color" />
+<input type ="button" value="get_color" onclick="getColor" />
+</form>
+</body>
+</html>

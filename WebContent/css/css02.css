@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+a:LINK {text-decoration: none;}
+a:HOVER{color: rgb(0,0,0,); text-decoration: underline;}
+a:ACTIVE{color: rgb(255,0,0);}
+a:VISITED{color: rgb(0,255,0);}
+
+
+.inp {
+	border: 1px solid orange;
+	height: 20px;
+	width: 200px;
+}
+
+#strawberry{
+	font-size: 2.0em;
+	color: rgb(255,0,0);
+}
+
+table {
+	font-family: '나눔고딕코딩';
+	border-style: solid;
+	border-left-style: dotted;
+	border-right-style: dashed;
+	line-height: 1.5;
+}
+
+table caption {
+	font-size: 3.0em;
+	padding-bottom: 0.2em;
+}
+
+table tr:nth-child(odd){
+   background-color: #f0f0f0;"
+}
+table tr:nth-child(even){
+   background-color: #ffffff;"
+}
+
+.warning_message {
+	color:rgba(255,0,0,1.0);
+	font-size:0.2em;
+}
