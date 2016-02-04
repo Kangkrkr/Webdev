@@ -7,20 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form action="leesang_process.jsp" method="get">
+		<select name="child">
 <%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
-	}
-	
-	out.println("출력방법 1 : "+sum);
+			for(int i=1; i<=13; i++){
+				
 %>
-
-<br/>
-<%="출력방법 2 : " + sum %>
-
+				<option><%=i %></option>
+<%
+			}
+%>
+		</select>
+		<input type="submit" value="선택">
+	</form>
 </body>
 </html>
