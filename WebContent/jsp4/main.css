@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+body {
+	margin : 0px;
+}
+
+table {
+	width : 1000px;
+	height : 800px;
+}
