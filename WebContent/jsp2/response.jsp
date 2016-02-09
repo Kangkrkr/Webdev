@@ -7,20 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
-	}
-	
-	out.println("출력방법 1 : "+sum);
+	response.sendRedirect("../jsp4/main.jsp");
 %>
-
-<br/>
-<%="출력방법 2 : " + sum %>
-
 </body>
 </html>

@@ -7,20 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
-	}
-	
-	out.println("출력방법 1 : "+sum);
-%>
-
-<br/>
-<%="출력방법 2 : " + sum %>
-
+<form action="four_rules.jsp" method="get">
+	첫번째 수 : <input type="text" name="num1"/>
+	두번째 수 : <input type="text" name="num2"/>
+	<input type="submit" value="확인"/>
+</form>
 </body>
 </html>

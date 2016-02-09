@@ -7,20 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+h16.jsp<br/>
 <%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
-	}
+	String name = request.getParameter("name");
+	int age = Integer.parseInt(request.getParameter("age"));
 	
-	out.println("출력방법 1 : "+sum);
+	out.println("이름은 "+name);
+	out.println("나이는 "+age);
 %>
-
-<br/>
-<%="출력방법 2 : " + sum %>
 
 </body>
 </html>

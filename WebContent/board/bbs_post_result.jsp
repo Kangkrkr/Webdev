@@ -7,20 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
+	String result = request.getParameter("result");
+
+	if(result.equals("success")){
+		out.println("저장되었습니다.");
+	}else{
+		out.println("파일 저장에 실패하였습니다.");
 	}
-	
-	out.println("출력방법 1 : "+sum);
 %>
-
-<br/>
-<%="출력방법 2 : " + sum %>
-
 </body>
 </html>

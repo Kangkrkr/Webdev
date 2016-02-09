@@ -7,20 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-	int sum = 0;
-	for(int i=1; i<=1000; i++){
-		if(i % 3 == 0){
-			sum += i;
-		}
-	}
-	
-	out.println("출력방법 1 : "+sum);
-%>
-
-<br/>
-<%="출력방법 2 : " + sum %>
-
+<h1>top</h1>
 </body>
 </html>

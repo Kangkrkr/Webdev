@@ -50,4 +50,24 @@
     <servlet-name>HelloServlet3</servlet-name>
     <url-pattern>/hello3</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WinnerServlet</display-name>
+    <servlet-name>WinnerServlet</servlet-name>
+    <servlet-class>servlet.hello.WinnerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WinnerServlet</servlet-name>
+    <url-pattern>/winner</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PersonalInfoServlet</display-name>
+    <servlet-name>PersonalInfoServlet</servlet-name>
+    <servlet-class>servlet.hello.PersonalInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalInfoServlet</servlet-name>
+    <url-pattern>/info_result</url-pattern>
+  </servlet-mapping>
 </web-app>
