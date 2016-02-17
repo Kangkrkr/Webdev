@@ -2,6 +2,7 @@ package util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +19,18 @@ public class Download extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String upload = "C:/dev/upload";
+		String upload = "C:/dev/uploads";
+		
+		File uploadPath = new File(upload);
+		
+		if(!uploadPath.exists()){
+			if(uploadPath.mkdirs()){
+				System.out.println("업로드 경로의 생성 성공.");
+				System.out.println(uploadPath.getPath());
+			}else{
+				System.out.println("업로드 경로의 생성 실패.");
+			}
+		}
 		
 		String filename = request.getParameter("filename");
 		response.setContentType("application/octet-stream");

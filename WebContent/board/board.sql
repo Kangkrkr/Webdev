@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /* Drop Tables */
 
@@ -34,3 +35,10 @@ CREATE TABLE board
 
 
 
+=======
+select * from board;
+
+delete from BOARD where pwd='1';
+
+commit
+>>>>>>> 7d8a622c853c91ea9ba03e2065fa2e8e89064a94

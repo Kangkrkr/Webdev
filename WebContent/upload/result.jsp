@@ -7,8 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%String filename = request.getParameter("filename"); %>
-	<a href="../download?filename=<%=filename %>"><%=filename %></a>
-	<img src="../download?filename=<%=filename %>"/>
+<%	
+	boolean isImage = Boolean.parseBoolean(request.getParameter("isImage"));
+	String filename = request.getParameter("filename"); 
+%>
+
+<a href="../download?filename=<%=filename %>"><%=filename %></a>
+
+<%	if(isImage){ %>
+		<img src="../download?filename=thumb_<%=filename %>"/>
+		<img src="../download?filename=<%=filename %>"/>
+<% 	} %>
 </body>
 </html>
