@@ -1,0 +1,61 @@
+[2016 - 02 - 12]
+
+User Interface Layer (Contoller)
+Service Layer (Service) --> [Service가 Contoller와 DAO사이의 작업을 연결해주는 역할.]
+Persistance Layer (Data Access Object)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+<jsp:useBean id="boardVO" class="board.model.BoardVO"/>
+<jsp:setProperty property="*" name="boardVO"/>
+
+--------> [property에 들어가는 값은 VO 클래스의 get,set 메소드의 이름과 맵핑이 된다.]
+--------> [property="title" 이라면 BoardVO 클래스의 getTitle, setTitle 과 맵핑되는것이다.]
+--------> [property="*" 이라면 BoardVO 클래스의 모든 get, set 메소드와 맵핑되는것이다.]
+--------> [즉, 아래의 코드가 jsp:useBean, jsp:setProperty 두 줄로 해결이 된다.]
+	
+String title = request.getParameter("title");
+String name = request.getParameter("name");
+String pwd = request.getParameter("pwd");
+String content = request.getParameter("content");
+
+BoardVO boardVO = new BoardVO();
+boardVO.setTitle(title);
+boardVO.setName(name);
+boardVO.setPwd(pwd);
+boardVO.setContent(content);
+
+---------------------------------------------------------------------------------------------------------------------------
+
+--------> 코드 작성이나 수정후 제대로 반영되지 않아 오류가 발생하는 경우 : cannot be resolved 등 .. 코드가 정상작성 되었으나 에러가 발생하는 경우
+클라이언트에서 문제가 발생했다 판단될 경우 크롬에서는 강력새로고침을 하고,
+서버단에서 문제가 발생했다 판단될 경우는 서버 스톱 -> 서버 마우스 우클릭후 Clean Tomcat Work Directory 실행
+다음, Project 탭에서 Build Automatically 를 체크후 clean -> 해당 프로젝트 선택후 확인.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+[2016 - 02 - 15] 
+ 
+web.xml 에서 세션의 유효시간을 설정하기.
+ 
+<!-- 사용자의 마지막 연결시간을 기준으로 30분이 지난후 세션 만기 -->
+<session-config>
+    <session-timeout>30</session-timeout>
+</session-config>
+ 
+ 
+session.setMaxInactiveInterval(10); 과 같이 java코드에서도 세션 유효기간을 설정할 수 있다.
+ 
+ 
+ 
+세션 삭제 ---------> session.invalidate() 를 하면, 전체 세션이 제거된다.
+
+
+쿠키는 생성 시간을 기준으로, maxAge 설정 기간만큼만 살아있는다.
+
+
+[2016 - 02 - 16 파일 업로드 ]
+
+오렐리 사의 파일 업로드 라이브러리를 사용하는 것으로 한다.
+http://servlets.com/cos/ 접속
+com.oreilly.servlet 를 클릭.

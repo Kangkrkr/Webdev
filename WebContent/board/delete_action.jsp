@@ -1,3 +1,5 @@
+<%@page import="board.model.BoardDAOImpl"%>
+<%@page import="board.model.BoardDAO"%>
 <%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -11,37 +13,8 @@
 <%
 	int no = Integer.parseInt(request.getParameter("no"));
 
-	StringBuffer sql = new StringBuffer();
-	sql.append("DELETE FROM board WHERE no=?");
-	
-	Connection conn = null;
-	PreparedStatement ps = null;
-	
-	try{
-		Class.forName("oracle.jdbc.OracleDriver");
-	
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "n1", "n1");
-		ps = conn.prepareStatement(sql.toString());
-		ps.setInt(1, no);
-		
-		ps.executeUpdate();
-		
-		response.sendRedirect("list.jsp");
-	}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		if(ps != null) try{ ps.close(); } catch(Exception e){};
-		if(conn != null) try{ conn.close(); } catch(Exception e){};
-	}
-%>    
+	BoardDAO boardDAO = BoardDAOImpl.getInstance();
+	boolean result = boardDAO.deleteArticle(no);
 
-<!DOCTYPE html>
-<html lang ="ko">
-<head>
-<meta charet="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+	response.sendRedirect("list.jsp");
+%>

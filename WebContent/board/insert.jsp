@@ -17,7 +17,7 @@
 </head>
 <body style="display: table; margin-left: auto; margin-top: 50px; margin-right: auto;">
 	<h1>게시글 추가 - 다음을 입력해주세요</h1>
-	<form action="insert_action.jsp" method="get" style="margin-top: 50px;">
+	<form action="insert_action.jsp" method="post" style="margin-top: 50px;">
 		<div>
 			<label for="title">제목</label>
 			<div>

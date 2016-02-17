@@ -1,5 +1,7 @@
+<%@page import="board.model.BoardVO"%>
+<%@page import="board.model.BoardDAOImpl"%>
+<%@page import="board.model.BoardDAO"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="org.json.simple.JSONObject"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -23,56 +25,26 @@
 <%
 	int no = Integer.parseInt(request.getParameter("no"));
 	
-	StringBuffer sql = new StringBuffer();
-	sql.append("select * from board where no=?");
-	
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	
-	String title = null;
-	String name = null;
-	String pwd = null;
-	String content = null;
-	
-	JSONObject obj = new JSONObject();
-	
-	try{
-		Class.forName("oracle.jdbc.OracleDriver");
-	
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "n1", "n1");
-		ps = conn.prepareStatement(sql.toString());
-		ps.setInt(1, no);
-		
-		rs = ps.executeQuery();
-		while(rs.next()){
-			title = rs.getString("title");
-			name = rs.getString("name");
-			pwd = rs.getString("pwd");
-			content = rs.getString("content");
-		}
-	}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		if(ps != null) try{ ps.close(); } catch(Exception e){};
-		if(conn != null) try{ conn.close(); } catch(Exception e){};
-	}
+	BoardDAO boardDAO = BoardDAOImpl.getInstance();
+	BoardVO boardVO = boardDAO.getArticle(no);
 %>
+
+<!-- input태그의 조작을 막기 위해 input태그의 속성으로 readonly="readonly"를 주거나 type을 hidden으로 준다 -->
 <body style="display: table; margin-left: auto; margin-top: 50px; margin-right: auto;">
 	<h1>게시글 수정 - 다음을 입력해주세요.</h1>
-	<form action="edit_action.jsp?no=<%=no %>" method="post" style="margin-top: 50px;">
+	<form action="edit_action.jsp?no=<%=boardVO.getNo() %>" method="post" style="margin-top: 50px;">
 		<div>
 			<label for="title">제목</label>
 			<div>
 				<input type="text" class="form-control" id="title" style="width: 550px; margin-bottom: 20px"
-					 name="title" value="<%=title %>" required="required">
+					 name="title" value="<%=boardVO.getTitle() %>" required="required">
 			</div>
 		</div>
 		<div>
 			<label for="name">작성자</label>
 			<div>
 				<input type="text" class="form-control" id="name" style="margin-bottom: 20px"
-					name="name" value="<%=name %>" required="required">
+					name="name" value="<%=boardVO.getName() %>" required="required">
 			</div>
 		</div>
 		<div>
@@ -86,7 +58,7 @@
 			<label for="content">내용</label>
 			<div>
 				<textarea class="form-control" id="content" style="margin-bottom: 30px"
-					name="content" required="required"><%=content %></textarea>
+					name="content" required="required"><%=boardVO.getContent() %></textarea>
 			</div>
 		</div>
 		<div>

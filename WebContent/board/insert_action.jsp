@@ -1,50 +1,15 @@
-<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="board.model.BoardDAOImpl"%>
+<%@page import="board.model.BoardDAO"%>
+<%@page import="board.model.BoardVO"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="boardVO" class="board.model.BoardVO"/>
+<jsp:setProperty property="*" name="boardVO"/>
     
 <%
-	String title = request.getParameter("title");
-	String name = request.getParameter("name");
-	String pwd = request.getParameter("pwd");
-	String content = request.getParameter("content");
-	
-	pwd = DigestUtils.sha512Hex(pwd);
-	
-	StringBuffer sql = new StringBuffer();
-	sql.append(" INSERT INTO board(no, title, name, content, pwd)");
-	sql.append(" VALUES(seq_board.nextval, ?, ?, ?, ?)");
-	
-	boolean result = false;
-	
-	Connection conn = null;
-	PreparedStatement ps = null;
-	
-	try{
-		// jdbc:oracle:thin:@localhost:1521:xe
-		Class.forName("oracle.jdbc.OracleDriver");
-	
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "n1", "n1");
-		ps = conn.prepareStatement(sql.toString());
-		ps.setString(1, title);
-		ps.setString(2, name);
-		ps.setString(3, content);
-		ps.setString(4, pwd);
-		
-		ps.executeUpdate();
-		
-		result = true;
-	}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		if(ps != null) try{ ps.close(); } catch(Exception e){};
-		if(conn != null) try{ conn.close(); } catch(Exception e){};
-	}
+	BoardDAO boardDAO = BoardDAOImpl.getInstance();
+	boolean result = boardDAO.insertArticle(boardVO);
 %>    
 
 <!DOCTYPE html>

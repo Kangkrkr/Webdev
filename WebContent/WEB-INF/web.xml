@@ -70,4 +70,14 @@
     <servlet-name>PersonalInfoServlet</servlet-name>
     <url-pattern>/info_result</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Download</display-name>
+    <servlet-name>Download</servlet-name>
+    <servlet-class>util.Download</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Download</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
 </web-app>

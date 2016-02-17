@@ -1,7 +1,7 @@
 
 /* Drop Tables */
 
-DROP TABLE board CASCADE CONSTRAINTS;
+DROP TABLE ydboard CASCADE CONSTRAINTS;
 
 
 
@@ -20,7 +20,7 @@ CREATE SEQUENCE seq_board;
 
 /* Create Tables */
 
-CREATE TABLE board
+CREATE TABLE ydboard
 (
 	no number NOT NULL,
 	title varchar2(100) NOT NULL,
