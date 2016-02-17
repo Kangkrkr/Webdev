@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<%@page import="board.model.BoardDAOImpl"%>
-<%@page import="board.model.BoardDAO"%>
-<%@page import="board.model.BoardVO"%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<jsp:useBean id="boardVO" class="board.model.BoardVO"/>
-<jsp:setProperty property="*" name="boardVO"/>
-    
-<%
-	BoardDAO boardDAO = BoardDAOImpl.getInstance();
-	boolean result = boardDAO.insertArticle(boardVO);
-=======
 <%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -59,7 +45,6 @@
 		if(ps != null) try{ ps.close(); } catch(Exception e){};
 		if(conn != null) try{ conn.close(); } catch(Exception e){};
 	}
->>>>>>> 7d8a622c853c91ea9ba03e2065fa2e8e89064a94
 %>    
 
 <!DOCTYPE html>

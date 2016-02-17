@@ -70,7 +70,6 @@
     <servlet-name>PersonalInfoServlet</servlet-name>
     <url-pattern>/info_result</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
   <servlet>
     <description></description>
     <display-name>Download</display-name>
@@ -81,6 +80,4 @@
     <servlet-name>Download</servlet-name>
     <url-pattern>/download</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> 7d8a622c853c91ea9ba03e2065fa2e8e89064a94
 </web-app>
