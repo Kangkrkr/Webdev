@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var score = 0;
+
+do {
+	score = parseInt(prompt(' 0~100사이의 점수를 입력하세요',0));	
+} while(score < 0 || 100 < score);
+
+switch (parseInt(score/10)) {	//(score/10) 이렇게 짜면 결과가 실수로 나옴 / 실수와 정수를 number라는 1개의 타입으로 쓰기때문!!
+case 10:
+case 9:
+   document.write('A학점 입니다.'); break;
+case 8:
+	document.write('B학점 입니다.'); break;
+case 7:
+	document.write('C학점 입니다.'); break;
+case 6:
+	document.write('D학점 입니다.'); break;
+default:
+	document.write('F학점 입니다.'); break;
+}
+</script>
+</body>
+</html> 

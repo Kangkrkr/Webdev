@@ -4,7 +4,9 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<f:bundle basename="i18n/test/board">
 <!DOCTYPE html>
 <html lang ="ko">
 <head>
@@ -15,7 +17,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<title>TeamK - 게시판</title>
+<title><f:message key="list.title"/></title>
 </head>
 <body style="margin: 5%">
 
@@ -37,18 +39,18 @@
 		
 		rs = ps.executeQuery();
 %>
-<h1 style="margin-left: 10px; margin-bottom: 50px">게시물 리스트</h1>
+<h1 style="margin-left: 10px; margin-bottom: 50px"><f:message key="list.action"/></h1>
 <table class="table table-bordered">
 		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>이름</th>
-			<th>내용</th>
-			<th>날짜</th>
-			<th>조회수</th>
+			<th><f:message key="list.no"/></th>
+			<th><f:message key="list.title"/></th>
+			<th><f:message key="list.name"/></th>
+			<!-- <th><f:message key="list.content"/></th> -->
+			<th><f:message key="list.regdate"/></th>
+			<th><f:message key="list.readcount"/></th>
 			<th colspan="2">
 				<div class="btn btn-default btn-lg btn-block" onclick="location.href='insert.jsp'">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true">글쓰기</span>
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"><f:message key="list.wirte"/></span>
 				</div>
 			</th>
 		</tr>
@@ -56,19 +58,19 @@
 		while(rs.next()){ %>
 		<tr>
 			<td><%=rs.getLong("no")%></td>
-			<td><%=rs.getString("title")%></td>
+			<td><a href="article.jsp?no=<%=rs.getLong("no")%>"><%=rs.getString("title")%></a></td>
 			<td><%=rs.getString("name")%></td>
-			<td><%=rs.getString("content")%></td>
+			<!-- <td><%=rs.getString("content")%></td> -->
 			<td><%=rs.getString("regdate")%></td>
 			<td><%=rs.getInt("readcount")%></td>
 			<td>
 				<div class="btn btn-default btn-lg btn-block" onclick="isValidate('<%=rs.getLong("no")%>', 'edit')" id="edit_btn">
-					<span>수정</span>
+					<span><f:message key="list.edit"/></span>
 				</div>
 			</td>
 			<td>
 				<div class="btn btn-default btn-lg btn-block" onclick="isValidate('<%=rs.getLong("no")%>', 'delete')" id="delete_btn">
-					<span>삭제</span>
+					<span><f:message key="list.delete"/></span>
 				</div>
 			</td>
 		</tr>
@@ -131,3 +133,4 @@ function whenError(resdata){
 </script>
 </body>
 </html>
+</f:bundle>

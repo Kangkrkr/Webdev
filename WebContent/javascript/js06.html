@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function confirm_delete() {
+		var yn = confirm('정말로 삭제하시겟습니꺄?');	
+		if(yn) {
+			document.write('삭제 되었습니다.');
+		} else {
+			document.write('삭제 취소 되었습니다.');
+		}
+}
+</script>
+</head>
+<body>
+<input type="button" value="삭제"
+onclick="confirm_delete();"/>
+</body>
+</html>

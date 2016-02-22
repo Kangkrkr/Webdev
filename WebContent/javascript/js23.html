@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function goURL(){
+	location.href = 'http://naver.com';
+}
+
+function goBack(){
+	location.href = history.back();
+}
+
+function goForward(){
+	location.href = history.forward();
+}
+</script>
+<body>
+<input type="button" value="이동" onclick="goURL();"/>
+<input type="button" value="뒤로" onclick="goBack();"/>
+<input type="button" value="앞으로" onclick="goForward();"/>
+<input type="button" value="뒤로 2번가기" onclick="history.go(-2);"/>
+<input type="button" value="앞으로 2번가기" onclick="history.go(2);"/>
+</body>
+</html>

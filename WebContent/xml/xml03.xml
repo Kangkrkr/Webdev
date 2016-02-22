@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookList SYSTEM "xml03.dtd">	<!-- dtd 파일을 사용한 xml구조의 정의. 웰 폼(well formed) -->
+<cdList> <!-- 루트 태그라고 불림(제일 기본이되는 경로) -->
+   <cd>
+      <subject>Perfect</subject>
+      <band>버즈</band>
+      <singer>민경훈</singer>
+      <price>30000</price>   
+      <song>My darilng(end)</song>
+      <song>My darilng(And)</song>
+   </cd>
+   <cd>
+      <subject>Morning Of Buzz</subject>
+      <singer>버즈</singer>
+      <price>20000</price>   
+      <song>Monologue</song>
+      <song>사랑뒤의 사랑</song>
+   </cd>
+</cdList>

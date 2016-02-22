@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 id="greeting">안녕하세요~</h1>
+<h1 style="color:red"><span id="bethereds">나는 지금 빨간색</span></h1>
+<h2><span id="fruit">감</span> 사</h2>
+<script type="text/javascript">
+document.getElementById('greeting').innerText = 'hello~';
+</script>
+
+<input type="button" value="click" 
+			onclick="document.getElementById('bethereds').style.color='green';
+			document.getElementById('bethereds').innerText='나는 지금 초록색'"/>
+<input type="button" value="사과" onclick="document.getElementById('fruit').innerText=value"/>
+<input type="button" value="딸기" onclick="document.getElementById('fruit').innerText=value"/>
+<input type="button" value="수박" onclick="document.getElementById('fruit').innerText='수박'"/>
+</body>
+</html>

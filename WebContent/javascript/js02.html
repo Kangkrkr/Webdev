@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>		<!-- 출력되는 순서 head 소스가 먼저 출력 그 다음 body -->
+<script type="text/javascript" src="out.js" ></script>
+<script type="text/javascript">
+function prn2() {							
+		for(var i=1; i<=3; i++) {
+			document.write('hello ');
+	}
+}
+</script>
+<!-- 코딩을 head 에 했어도 function 변수를 주고 body 쪽에 주면 head부터 실행안됨.  --> 
+</head>
+<body>
+hello javascript<br/>
+<script type="text/javascript">    // body는 한줄씩 한줄씩 실행이 되는데, 밑에 script가 존재하면 실행이 안됨!!
+prn2();
+</script>
+</body>
+</html>

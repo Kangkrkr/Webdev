@@ -8,13 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-jstl12.jsp 입니다.
-<%
-	String msg = "안녕하세요~";
-%>
-<c:import url="jstl12_inner.jsp" >
-	<c:param name="msg" value="<%=msg %>" />
-</c:import>
-bottom입니다.
+<form>
+<% String content = "<script>location.href='http://naver.com';</script>";%>
+<c:out value="<%=content %>" escapeXml="false" />
+</form>
 </body>
 </html>

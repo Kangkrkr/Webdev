@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function setKeyword(keyword){
+	var f = opener.document.myform;
+	f.keyword.value = keyword;
+	self.close();
+	
+}
+</script>
+<body>
+<a href="javascript:;" onclick="setKeyword('안녕하세요1');">안녕하세요1</a>
+<div onclick="setKeyword('안녕하세요2');">안녕하세요2</div>
+</body>
+</html>

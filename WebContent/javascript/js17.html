@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+function printArray(array){
+		for(var i=0; i < array.length; i++){
+			document.write('array[' + i +']:' + array[i] + '<br/>');
+		}
+		document.write('<hr/>');
+}
+var member = ['정대만','채치수','강백호','송태섭','강백호'];
+printArray(member);
+
+var score = new Array(90, 80, 70, 60, 50);		// var score = [90, 80, 70, 50]; 랑 같음
+printArray(score);
+
+var array = new Array(10);
+printArray(array);
+</script>
+</body>
+</html>

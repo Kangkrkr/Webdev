@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! public String charFilter(String str) {
+	str = str.replace("<", "&lt;");
+	str = str.replace(">", "&gt;");
+	return str;
+}
+%>  
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,13 +14,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-jstl12.jsp 입니다.
-<%
-	String msg = "안녕하세요~";
-%>
-<c:import url="jstl12_inner.jsp" >
-	<c:param name="msg" value="<%=msg %>" />
-</c:import>
-bottom입니다.
+<form>
+<% String content = charFilter( "</textarea><script>alert('hello');</script>");%>
+<textarea rows="4" cols="40"><%=content %></textarea>
+</form>
 </body>
 </html>

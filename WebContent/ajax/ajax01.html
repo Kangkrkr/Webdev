@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function setDisplay(str){
+	document.getElementById('display').value = str + '\n' + document.getElementById('display').value;
+}
+
+function getXMLHttpRequest(){
+	if(window.ActiveXObject){			// 익스플로러(IE 4~8)인지 확인.
+		setDisplay('Internet Explorer 4~8');
+		return new ActiveXObject("Microsoft.XMLHTTP");
+	}else if(window.XMLHttpRequest){	// 그 외의 브라우저들과 익스플로러 10...
+		setDisplay('explorer 10, chrome, etc...');
+		return new XMLHttpRequest();
+	}else{
+		setDisplay('does not support AJAX.');
+		return null;		
+	}
+}
+
+function load(){
+	var xhr = getXMLHttpRequest();
+	printReadyState(xhr);					// 0 : uninitialized
+	xhr.open('GET', 'msg.txt', true);
+	printReadyState(xhr);					// 1 : loading
+	
+	xhr.onreadystatechange = function(){	// readyState가 변경될때 마다 호출 될 콜백 메소드 정의.
+		printReadyState(xhr);
+											// 2 : send() -> loaded	
+											// 3 : interactive (receiving);
+											// 4 : complete
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){			// readyState = 4 & status = 200 --> 성공적인 통신을 의미.
+				document.getElementById('rcvPage').innerHTML = xhr.responseText;
+			}
+		}
+	}
+	
+	xhr.send();								// 전송 과정을 진행한다.
+}
+
+function printReadyState(xhr){
+	setDisplay('xhr.readyState : ' + xhr.readyState);
+}
+</script>
+<body>
+<input type="button" value="get msg" onclick="load();"/>
+<div id="rcvPage"></div>
+<hr/>
+<textarea id="display" rows="10" cols="40"></textarea>
+</body>
+</html>

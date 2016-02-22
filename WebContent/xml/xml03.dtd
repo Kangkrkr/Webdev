@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT cdList (cd*)>
+<!ELEMENT cd (subject, (band | singer)+, price, song+)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT band (#PCDATA)>
+<!ELEMENT singer (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT song (#PCDATA)>

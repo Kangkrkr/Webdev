@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookList SYSTEM "xml01.dtd">	<!-- dtd 파일을 사용한 xml구조의 정의. 웰 폼(well formed) -->
+<bookList> <!-- 루트 태그라고 불림(제일 기본이되는 경로) -->
+   <book kind="소설" country="러시아">
+      <title>까리마조프가의 형제</title>
+      <author>도스토예프스키</author>
+      <price>30000</price>   
+   </book>
+   <book kind="에세이" country="알제리">
+      <title>시지프스의 신화</title>
+      <author>알베르 카뮈</author>
+      <price>20000</price>
+   </book>
+   <book kind="소설" country="영국">
+      <title>푸코의 진자</title>
+      <author>움베르토 에코</author>
+      <price>10000</price>
+   </book>
+</bookList>
